@@ -8,11 +8,24 @@
           "mode": "night"
       },
       {
+          "id": "F972B82BA56A70CC579945773B686ART",
+          "name": "Стиральная машина",
+          "power": 500,
+          "duration": 3,
+          "mode": "day"
+      },
+      {
           "id": "C515D887EDBBE669B2FDAC62F571E9E9",
           "name": "Духовка",
           "power": 2000,
           "duration": 2,
           "mode": "day"
+      },
+      {
+          "id": "C515D887EDBBE669B2FDAC62F571EECO",
+          "name": "Вентиляция",
+          "power": 100,
+          "duration": 1
       },
       {
           "id": "02DDD23A85DADDD71198305330CC386D",
@@ -29,7 +42,7 @@
       {
           "id": "7D9DC84AD110500D284B33C82FE6E85E",
           "name": "Кондиционер",
-          "power": 850,
+          "power": 1850,
           "duration": 1
       }
   ],

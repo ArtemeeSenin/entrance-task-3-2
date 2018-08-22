@@ -150,7 +150,7 @@ function calc(input) {
             resPower[minIndex] += d.power;
 			res[minIndex].push(d.id);
 			output.consumedEnergy.devices[d.id] += (d.power * ratesValuesByHours[minIndex])
-			console.log(d.power * ratesValuesByHours[minIndex]);
+			//console.log(d.power * ratesValuesByHours[minIndex]);
             placedDuration++;
         }
 
@@ -176,14 +176,14 @@ function calc(input) {
                     resPower[sFrom] += d.power;
                     res[sFrom].push(d.id);
 					output.consumedEnergy.devices[d.id] += (d.power * ratesValuesByHours[sFrom]);
-					console.log(d.power * ratesValuesByHours[minIndex]);
+					//console.log(d.power * ratesValuesByHours[minIndex]);
                     placedDuration++;
                 } else {
                     sTo = candidates[1];
                     resPower[sTo] += d.power;
                     res[sTo].push(d.id);
 					output.consumedEnergy.devices[d.id] += (d.power * ratesValuesByHours[sTo])
-					console.log(d.power * ratesValuesByHours[minIndex]);
+					//console.log(d.power * ratesValuesByHours[minIndex]);
                     placedDuration++;
                 }
             } else
@@ -192,14 +192,14 @@ function calc(input) {
                 resPower[sFrom] += d.power;
                 res[sFrom].push(d.id);
 				output.consumedEnergy.devices[d.id] += (d.power * ratesValuesByHours[sFrom]);
-				console.log(d.power * ratesValuesByHours[minIndex]);
+				//console.log(d.power * ratesValuesByHours[minIndex]);
                 placedDuration++;
             } else {
                 sTo = candidates[1];
                 resPower[sTo] += d.power;
                 res[sTo].push(d.id);
 				output.consumedEnergy.devices[d.id] += (d.power * ratesValuesByHours[sTo]);
-				console.log(d.power * ratesValuesByHours[minIndex]);
+				//console.log(d.power * ratesValuesByHours[minIndex]);
                 placedDuration++;
             }
         }
@@ -215,6 +215,5 @@ function calc(input) {
 	}
 	output.consumedEnergy.value = Number(output.consumedEnergy.value.toFixed(4))
     console.log(res, resPower, output)
-    //console.log(ratesByHours, ratesValuesByHours);
-    printData(JSON.stringify(output))
+    printData(JSON.stringify(output, null, 2))
 }
