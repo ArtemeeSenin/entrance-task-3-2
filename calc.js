@@ -1,3 +1,4 @@
+'use strict'
 const fs = require('fs')
 fs.readFile('./data/input.json', getData)
 
@@ -103,6 +104,37 @@ function calc(input) {
         return res;
     }
 
+    function checkDurationCapacity(d, range, rates, resPower) {
+        let durations = []
+        let currentDuration = {
+            gap: 0,
+            startPoint: range.from
+        };
+        if(d.id == 'pos'){
+            debugger;
+        }
+        for(let i = range.from; i < range.to; i++){
+            if(resPower[i] + d.power <= input.maxPower){
+                currentDuration.gap++
+            } else if(currentDuration.gap >= d.duration) {
+                durations.push(currentDuration)
+                currentDuration = {
+                    gap: 0,
+                    startPoint: i + 1
+                }
+            } else {
+                currentDuration = {
+                    gap: 0,
+                    startPoint: i + 1
+                }
+            }
+        }
+        if(currentDuration.gap >= d.duration){
+            durations.push(currentDuration)
+        }
+        return durations;
+    }
+
     let ratesByHours = Array(24).fill()
     for (let r of input.rates) {
         let i = r.from;
@@ -142,19 +174,26 @@ function calc(input) {
         let minIndex = ratesValuesByHours.indexOf(min);
 
         let sFrom = minIndex;
-		let sTo = minIndex;
-		
-		debugger;
+        let sTo = minIndex;
+        debugger;
+        let durationsCapacity = checkDurationCapacity(d, { from: from, to: to }, ratesValuesByHours, resPower)
+
+        if (!durationsCapacity[0]) {
+            console.log('No capacity', d.id, durationsCapacity);
+        } else {
+            console.log('get best conditions', d.id, durationsCapacity);
+        }
+
 
         if (resPower[minIndex] + d.power <= input.maxPower) {
             resPower[minIndex] += d.power;
-			res[minIndex].push(d.id);
-			output.consumedEnergy.devices[d.id] += (d.power * ratesValuesByHours[minIndex])
-			//console.log(d.power * ratesValuesByHours[minIndex]);
+            res[minIndex].push(d.id);
+            output.consumedEnergy.devices[d.id] += (d.power * ratesValuesByHours[minIndex])
+            //console.log(d.power * ratesValuesByHours[minIndex]);
             placedDuration++;
         }
 
-        while (placedDuration != d.duration) {
+        while (placedDuration != d.duration) { //debugger;
             let candidates = [];
             let candidatesValues = [];
 
@@ -170,20 +209,21 @@ function calc(input) {
                 candidatesValues[1] = ratesValuesByHours[candidate];
             }
 
+
             if (candidates[0] && candidates[1]) {
                 if (candidatesValues[0] < candidatesValues[1]) {
                     sFrom = candidates[0];
                     resPower[sFrom] += d.power;
                     res[sFrom].push(d.id);
-					output.consumedEnergy.devices[d.id] += (d.power * ratesValuesByHours[sFrom]);
-					//console.log(d.power * ratesValuesByHours[minIndex]);
+                    output.consumedEnergy.devices[d.id] += (d.power * ratesValuesByHours[sFrom]);
+                    //console.log(d.power * ratesValuesByHours[minIndex]);
                     placedDuration++;
                 } else {
                     sTo = candidates[1];
                     resPower[sTo] += d.power;
                     res[sTo].push(d.id);
-					output.consumedEnergy.devices[d.id] += (d.power * ratesValuesByHours[sTo])
-					//console.log(d.power * ratesValuesByHours[minIndex]);
+                    output.consumedEnergy.devices[d.id] += (d.power * ratesValuesByHours[sTo])
+                    //console.log(d.power * ratesValuesByHours[minIndex]);
                     placedDuration++;
                 }
             } else
@@ -191,15 +231,15 @@ function calc(input) {
                 sFrom = candidates[0];
                 resPower[sFrom] += d.power;
                 res[sFrom].push(d.id);
-				output.consumedEnergy.devices[d.id] += (d.power * ratesValuesByHours[sFrom]);
-				//console.log(d.power * ratesValuesByHours[minIndex]);
+                output.consumedEnergy.devices[d.id] += (d.power * ratesValuesByHours[sFrom]);
+                //console.log(d.power * ratesValuesByHours[minIndex]);
                 placedDuration++;
             } else {
                 sTo = candidates[1];
                 resPower[sTo] += d.power;
                 res[sTo].push(d.id);
-				output.consumedEnergy.devices[d.id] += (d.power * ratesValuesByHours[sTo]);
-				//console.log(d.power * ratesValuesByHours[minIndex]);
+                output.consumedEnergy.devices[d.id] += (d.power * ratesValuesByHours[sTo]);
+                //console.log(d.power * ratesValuesByHours[minIndex]);
                 placedDuration++;
             }
         }
@@ -210,10 +250,10 @@ function calc(input) {
     })
 
     for (var k in output.consumedEnergy.devices) {
-        output.consumedEnergy.devices[k] = Number(output.consumedEnergy.devices[k].toFixed(4)/1000)
+        output.consumedEnergy.devices[k] = Number(output.consumedEnergy.devices[k].toFixed(4) / 1000)
         output.consumedEnergy.value += Number(output.consumedEnergy.devices[k])
-	}
-	output.consumedEnergy.value = Number(output.consumedEnergy.value.toFixed(4))
+    }
+    output.consumedEnergy.value = Number(output.consumedEnergy.value.toFixed(4))
     console.log(res, resPower, output)
     printData(JSON.stringify(output, null, 2))
 }

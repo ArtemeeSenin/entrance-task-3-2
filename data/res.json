@@ -1,122 +1,132 @@
 {
   "shedule": {
     "0": [
-      "02DDD23A85DADDD71198305330CC386D",
-      "1E6276CC231716FE8EE8BC908486D41E",
-      "F972B82BA56A70CC579945773B6866FB",
-      "C515D887EDBBE669B2FDAC62F571EECO"
+      "hol",
+      "term",
+      "vent",
+      "pos"
     ],
     "1": [
-      "02DDD23A85DADDD71198305330CC386D",
-      "1E6276CC231716FE8EE8BC908486D41E",
-      "F972B82BA56A70CC579945773B6866FB"
+      "hol",
+      "term",
+      "vent",
+      "pos"
     ],
     "2": [
-      "02DDD23A85DADDD71198305330CC386D",
-      "1E6276CC231716FE8EE8BC908486D41E",
-      "F972B82BA56A70CC579945773B6866FB"
+      "hol",
+      "term",
+      "vent",
+      "pos"
     ],
     "3": [
-      "02DDD23A85DADDD71198305330CC386D",
-      "1E6276CC231716FE8EE8BC908486D41E"
+      "hol",
+      "term",
+      "vent"
     ],
     "4": [
-      "02DDD23A85DADDD71198305330CC386D",
-      "1E6276CC231716FE8EE8BC908486D41E"
+      "hol",
+      "term",
+      "vent"
     ],
     "5": [
-      "02DDD23A85DADDD71198305330CC386D",
-      "1E6276CC231716FE8EE8BC908486D41E"
+      "hol",
+      "term",
+      "vent"
     ],
     "6": [
-      "02DDD23A85DADDD71198305330CC386D",
-      "1E6276CC231716FE8EE8BC908486D41E"
+      "hol",
+      "term",
+      "vent"
     ],
     "7": [
-      "02DDD23A85DADDD71198305330CC386D",
-      "1E6276CC231716FE8EE8BC908486D41E"
+      "hol",
+      "term",
+      "vent"
     ],
     "8": [
-      "02DDD23A85DADDD71198305330CC386D",
-      "1E6276CC231716FE8EE8BC908486D41E",
-      "C515D887EDBBE669B2FDAC62F571E9E9"
+      "hol",
+      "term",
+      "duh"
     ],
     "9": [
-      "02DDD23A85DADDD71198305330CC386D",
-      "1E6276CC231716FE8EE8BC908486D41E",
-      "C515D887EDBBE669B2FDAC62F571E9E9"
+      "hol",
+      "term",
+      "duh"
     ],
     "10": [
-      "02DDD23A85DADDD71198305330CC386D",
-      "1E6276CC231716FE8EE8BC908486D41E",
-      "F972B82BA56A70CC579945773B686ART"
+      "hol",
+      "term",
+      "stir"
     ],
     "11": [
-      "02DDD23A85DADDD71198305330CC386D",
-      "1E6276CC231716FE8EE8BC908486D41E",
-      "F972B82BA56A70CC579945773B686ART"
+      "hol",
+      "term",
+      "stir"
     ],
     "12": [
-      "02DDD23A85DADDD71198305330CC386D",
-      "1E6276CC231716FE8EE8BC908486D41E",
-      "F972B82BA56A70CC579945773B686ART"
+      "hol",
+      "term",
+      "stir"
     ],
     "13": [
-      "02DDD23A85DADDD71198305330CC386D",
-      "1E6276CC231716FE8EE8BC908486D41E"
+      "hol",
+      "term"
     ],
     "14": [
-      "02DDD23A85DADDD71198305330CC386D",
-      "1E6276CC231716FE8EE8BC908486D41E"
+      "hol",
+      "term"
     ],
     "15": [
-      "02DDD23A85DADDD71198305330CC386D",
-      "1E6276CC231716FE8EE8BC908486D41E"
+      "hol",
+      "term"
     ],
     "16": [
-      "02DDD23A85DADDD71198305330CC386D",
-      "1E6276CC231716FE8EE8BC908486D41E"
+      "hol",
+      "term"
     ],
     "17": [
-      "02DDD23A85DADDD71198305330CC386D",
-      "1E6276CC231716FE8EE8BC908486D41E"
+      "hol",
+      "term"
     ],
     "18": [
-      "02DDD23A85DADDD71198305330CC386D",
-      "1E6276CC231716FE8EE8BC908486D41E"
+      "hol",
+      "term"
     ],
     "19": [
-      "02DDD23A85DADDD71198305330CC386D",
-      "1E6276CC231716FE8EE8BC908486D41E"
+      "hol",
+      "term"
     ],
     "20": [
-      "02DDD23A85DADDD71198305330CC386D",
-      "1E6276CC231716FE8EE8BC908486D41E"
+      "hol",
+      "term"
     ],
     "21": [
-      "02DDD23A85DADDD71198305330CC386D",
-      "1E6276CC231716FE8EE8BC908486D41E"
+      "hol",
+      "term",
+      "vent"
     ],
     "22": [
-      "02DDD23A85DADDD71198305330CC386D",
-      "1E6276CC231716FE8EE8BC908486D41E"
+      "hol",
+      "term",
+      "vent"
     ],
     "23": [
-      "02DDD23A85DADDD71198305330CC386D",
-      "1E6276CC231716FE8EE8BC908486D41E",
-      "7D9DC84AD110500D284B33C82FE6E85E"
+      "hol",
+      "term",
+      "vent",
+      "kond"
     ]
   },
   "consumedEnergy": {
-    "value": 53.298,
+    "value": 56.273,
     "devices": {
-      "02DDD23A85DADDD71198305330CC386D": 5.398,
-      "1E6276CC231716FE8EE8BC908486D41E": 5.398,
-      "F972B82BA56A70CC579945773B6866FB": 5.1015,
-      "F972B82BA56A70CC579945773B686ART": 8.07,
-      "C515D887EDBBE669B2FDAC62F571E9E9": 25.84,
-      "C515D887EDBBE669B2FDAC62F571EECO": 0.179,
-      "7D9DC84AD110500D284B33C82FE6E85E": 3.3115
+      "hol": 5.398,
+      "term": 5.398,
+      "vent": 3.154,
+      "pos": 5.1015,
+      "stir": 8.07,
+      "duh": 25.84,
+      "kond": 3.3115
     }
   }
 }
