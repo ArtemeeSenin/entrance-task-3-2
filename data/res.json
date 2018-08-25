@@ -1,132 +1,116 @@
 {
   "shedule": {
     "0": [
-      "hol",
-      "term",
-      "vent",
-      "pos"
+      "02DDD23A85DADDD71198305330CC386D",
+      "1E6276CC231716FE8EE8BC908486D41E",
+      "7D9DC84AD110500D284B33C82FE6E85E"
     ],
     "1": [
-      "hol",
-      "term",
-      "vent",
-      "pos"
+      "02DDD23A85DADDD71198305330CC386D",
+      "1E6276CC231716FE8EE8BC908486D41E"
     ],
     "2": [
-      "hol",
-      "term",
-      "vent",
-      "pos"
+      "02DDD23A85DADDD71198305330CC386D",
+      "1E6276CC231716FE8EE8BC908486D41E"
     ],
     "3": [
-      "hol",
-      "term",
-      "vent"
+      "02DDD23A85DADDD71198305330CC386D",
+      "1E6276CC231716FE8EE8BC908486D41E"
     ],
     "4": [
-      "hol",
-      "term",
-      "vent"
+      "02DDD23A85DADDD71198305330CC386D",
+      "1E6276CC231716FE8EE8BC908486D41E"
     ],
     "5": [
-      "hol",
-      "term",
-      "vent"
+      "02DDD23A85DADDD71198305330CC386D",
+      "1E6276CC231716FE8EE8BC908486D41E"
     ],
     "6": [
-      "hol",
-      "term",
-      "vent"
+      "02DDD23A85DADDD71198305330CC386D",
+      "1E6276CC231716FE8EE8BC908486D41E",
+      "C515D887EDBBE669B2FDAC62F571E9E9"
     ],
     "7": [
-      "hol",
-      "term",
-      "vent"
+      "02DDD23A85DADDD71198305330CC386D",
+      "1E6276CC231716FE8EE8BC908486D41E",
+      "C515D887EDBBE669B2FDAC62F571E9E9"
     ],
     "8": [
-      "hol",
-      "term",
-      "duh"
+      "02DDD23A85DADDD71198305330CC386D",
+      "1E6276CC231716FE8EE8BC908486D41E"
     ],
     "9": [
-      "hol",
-      "term",
-      "duh"
+      "02DDD23A85DADDD71198305330CC386D",
+      "1E6276CC231716FE8EE8BC908486D41E"
     ],
     "10": [
-      "hol",
-      "term",
-      "stir"
+      "02DDD23A85DADDD71198305330CC386D",
+      "1E6276CC231716FE8EE8BC908486D41E"
     ],
     "11": [
-      "hol",
-      "term",
-      "stir"
+      "02DDD23A85DADDD71198305330CC386D",
+      "1E6276CC231716FE8EE8BC908486D41E"
     ],
     "12": [
-      "hol",
-      "term",
-      "stir"
+      "02DDD23A85DADDD71198305330CC386D",
+      "1E6276CC231716FE8EE8BC908486D41E"
     ],
     "13": [
-      "hol",
-      "term"
+      "02DDD23A85DADDD71198305330CC386D",
+      "1E6276CC231716FE8EE8BC908486D41E"
     ],
     "14": [
-      "hol",
-      "term"
+      "02DDD23A85DADDD71198305330CC386D",
+      "1E6276CC231716FE8EE8BC908486D41E"
     ],
     "15": [
-      "hol",
-      "term"
+      "02DDD23A85DADDD71198305330CC386D",
+      "1E6276CC231716FE8EE8BC908486D41E"
     ],
     "16": [
-      "hol",
-      "term"
+      "02DDD23A85DADDD71198305330CC386D",
+      "1E6276CC231716FE8EE8BC908486D41E"
     ],
     "17": [
-      "hol",
-      "term"
+      "02DDD23A85DADDD71198305330CC386D",
+      "1E6276CC231716FE8EE8BC908486D41E"
     ],
     "18": [
-      "hol",
-      "term"
+      "02DDD23A85DADDD71198305330CC386D",
+      "1E6276CC231716FE8EE8BC908486D41E"
     ],
     "19": [
-      "hol",
-      "term"
+      "02DDD23A85DADDD71198305330CC386D",
+      "1E6276CC231716FE8EE8BC908486D41E"
     ],
     "20": [
-      "hol",
-      "term"
+      "02DDD23A85DADDD71198305330CC386D",
+      "1E6276CC231716FE8EE8BC908486D41E"
     ],
     "21": [
-      "hol",
-      "term",
-      "vent"
+      "02DDD23A85DADDD71198305330CC386D",
+      "1E6276CC231716FE8EE8BC908486D41E",
+      "F972B82BA56A70CC579945773B6866FB"
     ],
     "22": [
-      "hol",
-      "term",
-      "vent"
+      "02DDD23A85DADDD71198305330CC386D",
+      "1E6276CC231716FE8EE8BC908486D41E",
+      "F972B82BA56A70CC579945773B6866FB"
     ],
     "23": [
-      "hol",
-      "term",
-      "vent",
-      "kond"
+      "02DDD23A85DADDD71198305330CC386D",
+      "1E6276CC231716FE8EE8BC908486D41E",
+      "F972B82BA56A70CC579945773B6866FB"
     ]
   },
   "consumedEnergy": {
-    "value": 56.273,
+    "value": 40.74,
     "devices": {
-      "hol": 5.398,
-      "term": 5.398,
-      "vent": 3.154,
-      "pos": 5.1015,
-      "stir": 8.07,
-      "duh": 25.84,
-      "kond": 3.3115
+      "02DDD23A85DADDD71198305330CC386D": 5.398,
+      "1E6276CC231716FE8EE8BC908486D41E": 5.398,
+      "F972B82BA56A70CC579945773B6866FB": 11.9225,
+      "C515D887EDBBE669B2FDAC62F571E9E9": 16.5,
+      "7D9DC84AD110500D284B33C82FE6E85E": 1.5215
     }
   }
 }
