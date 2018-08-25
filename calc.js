@@ -1,6 +1,6 @@
 'use strict'
 const fs = require('fs')
-fs.readFile('./data/input.json', getData)
+fs.readFile('./data/input-example.json', getData)
 
 function getData(err, data) {
     if (err) throw err;
@@ -43,7 +43,7 @@ function calc(input) {
         to: 21,
     }
 
-    debugger;
+    
 
     function getRangeModes(rToShift, rFromShift) {
         let rMode = [];
@@ -93,6 +93,7 @@ function calc(input) {
     }
 
     function normalizeHour(h) {
+        console.log(h);
         return (24 + h) % 24;
     }
 
@@ -105,30 +106,34 @@ function calc(input) {
     }
 
     function checkDurationCapacity(d, range, rates, resPower) {
+        //debugger;
         let durations = []
         let currentDuration = {
             gap: 0,
             startPoint: range.from
         };
-        if(d.id == 'pos'){
-            debugger;
+        let max, i = range.from;
+        if(range.from > range.to){            
+            max = 23 + range.to
+        } else {
+            max = range.to
         }
-        for(let i = range.from; i < range.to; i++){
-            if(resPower[i] + d.power <= input.maxPower){
+        do {
+            if(resPower[normalizeHour(i)] + d.power <= input.maxPower){
                 currentDuration.gap++
             } else if(currentDuration.gap >= d.duration) {
                 durations.push(currentDuration)
                 currentDuration = {
                     gap: 0,
-                    startPoint: i + 1
+                    startPoint: normalizeHour(i) + 1
                 }
             } else {
                 currentDuration = {
                     gap: 0,
-                    startPoint: i + 1
+                    startPoint: normalizeHour(i) + 1
                 }
             }
-        }
+        } while (i++ < max - 1)
         if(currentDuration.gap >= d.duration){
             durations.push(currentDuration)
         }
@@ -173,17 +178,19 @@ function calc(input) {
         let min = Math.min(...sliceValuesByHours);
         let minIndex = ratesValuesByHours.indexOf(min);
 
-        let sFrom = minIndex;
-        let sTo = minIndex;
-        debugger;
         let durationsCapacity = checkDurationCapacity(d, { from: from, to: to }, ratesValuesByHours, resPower)
-
         if (!durationsCapacity[0]) {
             console.log('No capacity', d.id, durationsCapacity);
         } else {
             console.log('get best conditions', d.id, durationsCapacity);
+            minIndex = durationsCapacity[0].startPoint
+            debugger;
         }
+        let sFrom = minIndex;
+        let sTo = minIndex;
+        
 
+        
 
         if (resPower[minIndex] + d.power <= input.maxPower) {
             resPower[minIndex] += d.power;
@@ -193,18 +200,18 @@ function calc(input) {
             placedDuration++;
         }
 
-        while (placedDuration != d.duration) { //debugger;
+        while (placedDuration != d.duration) {
             let candidates = [];
             let candidatesValues = [];
 
             let candidate;
             candidate = normalizeHour(sFrom - 1);
-            if (resPower[candidate] + d.power <= input.maxPower && checkInRangeHours(from, to, candidate)) {
+            if (resPower[candidate] + d.power <= input.maxPower/* && checkInRangeHours(from, to, candidate)*/) {
                 candidates[0] = candidate;
                 candidatesValues[0] = ratesValuesByHours[candidate];
             }
             candidate = normalizeHour(sTo + 1);
-            if (resPower[candidate] + d.power <= input.maxPower && checkInRangeHours(from, to, candidate)) {
+            if (resPower[candidate] + d.power <= input.maxPower/* && checkInRangeHours(from, to, candidate)*/) {
                 candidates[1] = candidate;
                 candidatesValues[1] = ratesValuesByHours[candidate];
             }
