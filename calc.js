@@ -140,11 +140,13 @@ function calc(input) {
         return durations;
     }
 
-    function getEconomicalDuration(durations, d, ratesValuesByHours){
+    function getEconomicalDuration(durations, d, ratesValuesByHours, resPower){
         debugger;
 
         let minIdx = durations[0].startPoint;
         let min = ratesValuesByHours[minIdx];
+        if(d.id == 'F972B82BA56A70CC579945773B6866FB')
+            console.log(durations, ratesValuesByHours, resPower);
         durations.map( (duration) => {
             /* let candidate = Math.min(...(ratesValuesByHours.slice(duration.startPoint, duration.startPoint + duration.gap))) // ормализовать?
             if(candidate < min){
@@ -153,13 +155,13 @@ function calc(input) {
             }*/
 
             for(let i = duration.startPoint; i <= duration.startPoint + (duration.gap - d.duration); i ++){
-                if(ratesValuesByHours[i] < min){
-                    min = ratesValuesByHours[i]
-                    minIdx = i
+                if(ratesValuesByHours[normalizeHour(i)] < min){
+                    min = ratesValuesByHours[normalizeHour(i)]
+                    minIdx = normalizeHour(i)
                 }
             }
         })
-        console.log(ratesValuesByHours, 'min', min, 'minIdx', minIdx);
+        console.log('min', min, 'minIdx', minIdx);
        
         return minIdx;
     }
@@ -208,7 +210,7 @@ function calc(input) {
             throw new Error('No capacity found for this divice')
         } else {
             console.log('get best conditions', d.id, durationsCapacity);
-            minIndex = getEconomicalDuration(durationsCapacity, d, ratesValuesByHours)
+            minIndex = getEconomicalDuration(durationsCapacity, d, ratesValuesByHours, resPower)
             //debugdebugger;
         }
         let sFrom = minIndex;
@@ -242,7 +244,7 @@ function calc(input) {
             }
 
 
-            if (candidates[0] && candidates[1]) {
+            if (typeof(candidates[0]) !== undefined && typeof(candidates[1]) !== undefined) {
                 if (candidatesValues[0] < candidatesValues[1]) {
                     sFrom = candidates[0];
                     resPower[sFrom] += d.power;
