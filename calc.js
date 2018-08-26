@@ -1,6 +1,6 @@
 'use strict'
 const fs = require('fs')
-fs.readFile('./data/input-example.json', getData)
+fs.readFile('./data/input.json', getData)
 
 function getData(err, data) {
     if (err) throw err;
