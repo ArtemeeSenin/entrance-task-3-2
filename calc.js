@@ -34,9 +34,6 @@ function calc(input) {
     sortedDevices.map((el) => {
         output.consumedEnergy.devices[el.id] = 0
     })
-    // console.log(output);
-    // console.log(sortedDevices)
-    // console.log(sortedRates)
 
     const day = {
         from: 7,
@@ -93,7 +90,6 @@ function calc(input) {
     }
 
     function normalizeHour(h) {
-        console.log(h);
         return (24 + h) % 24;
     }
 
@@ -106,7 +102,7 @@ function calc(input) {
     }
 
     function checkDurationCapacity(d, range, rates, resPower) {
-        //debugger;
+        
         let durations = []
         let currentDuration = {
             gap: 0,
@@ -141,12 +137,10 @@ function calc(input) {
     }
 
     function getEconomicalDuration(durations, d, ratesValuesByHours, resPower){
-        debugger;
 
         let minIdx = durations[0].startPoint;
         let min = ratesValuesByHours[minIdx];
         if(d.id == 'F972B82BA56A70CC579945773B6866FB')
-            console.log(durations, ratesValuesByHours, resPower);
         durations.map( (duration) => {
             /* let candidate = Math.min(...(ratesValuesByHours.slice(duration.startPoint, duration.startPoint + duration.gap))) // ормализовать?
             if(candidate < min){
@@ -161,7 +155,6 @@ function calc(input) {
                 }
             }
         })
-        console.log('min', min, 'minIdx', minIdx);
        
         return minIdx;
     }
@@ -206,24 +199,19 @@ function calc(input) {
 
         let durationsCapacity = checkDurationCapacity(d, { from: from, to: to }, ratesValuesByHours, resPower)
         if (!durationsCapacity[0]) {
-            console.log('No capacity', d.id);
             throw new Error('No capacity found for this divice')
         } else {
-            console.log('get best conditions', d.id, durationsCapacity);
             minIndex = getEconomicalDuration(durationsCapacity, d, ratesValuesByHours, resPower)
-            //debugdebugger;
+            
         }
         let sFrom = minIndex;
         let sTo = minIndex;
         
 
-        console.log(sFrom, sTo);
-
         if (resPower[minIndex] + d.power <= input.maxPower) {
             resPower[minIndex] += d.power;
             res[minIndex].push(d.id);
             output.consumedEnergy.devices[d.id] += (d.power * ratesValuesByHours[minIndex])
-            //console.log(d.power * ratesValuesByHours[minIndex]);
             placedDuration++;
         }
 
@@ -250,14 +238,12 @@ function calc(input) {
                     resPower[sFrom] += d.power;
                     res[sFrom].push(d.id);
                     output.consumedEnergy.devices[d.id] += (d.power * ratesValuesByHours[sFrom]);
-                    //console.log(d.power * ratesValuesByHours[minIndex]);
                     placedDuration++;
                 } else {
                     sTo = candidates[1];
                     resPower[sTo] += d.power;
                     res[sTo].push(d.id);
                     output.consumedEnergy.devices[d.id] += (d.power * ratesValuesByHours[sTo])
-                    //console.log(d.power * ratesValuesByHours[minIndex]);
                     placedDuration++;
                 }
             } else
@@ -266,14 +252,12 @@ function calc(input) {
                 resPower[sFrom] += d.power;
                 res[sFrom].push(d.id);
                 output.consumedEnergy.devices[d.id] += (d.power * ratesValuesByHours[sFrom]);
-                //console.log(d.power * ratesValuesByHours[minIndex]);
                 placedDuration++;
             } else {
                 sTo = candidates[1];
                 resPower[sTo] += d.power;
                 res[sTo].push(d.id);
                 output.consumedEnergy.devices[d.id] += (d.power * ratesValuesByHours[sTo]);
-                //console.log(d.power * ratesValuesByHours[minIndex]);
                 placedDuration++;
             }
         }
@@ -288,6 +272,5 @@ function calc(input) {
         output.consumedEnergy.value += Number(output.consumedEnergy.devices[k])
     }
     output.consumedEnergy.value = Number(output.consumedEnergy.value.toFixed(4))
-    console.log(res, resPower, output)
     printData(JSON.stringify(output, null, 2))
 }
