@@ -140,6 +140,30 @@ function calc(input) {
         return durations;
     }
 
+    function getEconomicalDuration(durations, d, ratesValuesByHours){
+        debugger;
+
+        let minIdx = durations[0].startPoint;
+        let min = ratesValuesByHours[minIdx];
+        durations.map( (duration) => {
+            /* let candidate = Math.min(...(ratesValuesByHours.slice(duration.startPoint, duration.startPoint + duration.gap))) // ормализовать?
+            if(candidate < min){
+                min = candidate;
+                minIdx = ratesValuesByHours.indexOf(candidate)
+            }*/
+
+            for(let i = duration.startPoint; i <= duration.startPoint + (duration.gap - d.duration); i ++){
+                if(ratesValuesByHours[i] < min){
+                    min = ratesValuesByHours[i]
+                    minIdx = i
+                }
+            }
+        })
+        console.log(ratesValuesByHours, 'min', min, 'minIdx', minIdx);
+       
+        return minIdx;
+    }
+
     let ratesByHours = Array(24).fill()
     for (let r of input.rates) {
         let i = r.from;
@@ -175,22 +199,23 @@ function calc(input) {
 
         let sliceValuesByHours = eOfR(ratesValuesByHours, rangeToSetHours(from, to))
 
-        let min = Math.min(...sliceValuesByHours);
-        let minIndex = ratesValuesByHours.indexOf(min);
+        //let min = Math.min(...sliceValuesByHours);
+        let minIndex// = ratesValuesByHours.indexOf(min);
 
         let durationsCapacity = checkDurationCapacity(d, { from: from, to: to }, ratesValuesByHours, resPower)
         if (!durationsCapacity[0]) {
-            console.log('No capacity', d.id, durationsCapacity);
+            console.log('No capacity', d.id);
+            throw new Error('No capacity found for this divice')
         } else {
             console.log('get best conditions', d.id, durationsCapacity);
-            minIndex = durationsCapacity[0].startPoint
-            debugger;
+            minIndex = getEconomicalDuration(durationsCapacity, d, ratesValuesByHours)
+            //debugdebugger;
         }
         let sFrom = minIndex;
         let sTo = minIndex;
         
 
-        
+        console.log(sFrom, sTo);
 
         if (resPower[minIndex] + d.power <= input.maxPower) {
             resPower[minIndex] += d.power;
