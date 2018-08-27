@@ -40,7 +40,7 @@ function calc(input) {
         to: 21,
     }
 
-    
+
 
     function getRangeModes(rToShift, rFromShift) {
         let rMode = [];
@@ -102,14 +102,14 @@ function calc(input) {
     }
 
     function checkDurationCapacity(d, range, rates, resPower) {
-        
+
         let durations = []
         let currentDuration = {
             gap: 0,
             startPoint: range.from
         };
         let max, i = range.from;
-        if(range.from > range.to){            
+        if(range.from > range.to){
             max = 23 + range.to
         } else {
             max = range.to
@@ -140,13 +140,7 @@ function calc(input) {
 
         let minIdx = durations[0].startPoint;
         let min = ratesValuesByHours[minIdx];
-        if(d.id == 'F972B82BA56A70CC579945773B6866FB')
         durations.map( (duration) => {
-            /* let candidate = Math.min(...(ratesValuesByHours.slice(duration.startPoint, duration.startPoint + duration.gap))) // ормализовать?
-            if(candidate < min){
-                min = candidate;
-                minIdx = ratesValuesByHours.indexOf(candidate)
-            }*/
 
             for(let i = duration.startPoint; i <= duration.startPoint + (duration.gap - d.duration); i ++){
                 if(ratesValuesByHours[normalizeHour(i)] < min){
@@ -155,7 +149,7 @@ function calc(input) {
                 }
             }
         })
-       
+
         return minIdx;
     }
 
@@ -194,19 +188,19 @@ function calc(input) {
 
         let sliceValuesByHours = eOfR(ratesValuesByHours, rangeToSetHours(from, to))
 
-        //let min = Math.min(...sliceValuesByHours);
-        let minIndex// = ratesValuesByHours.indexOf(min);
+
+        let minIndex;
 
         let durationsCapacity = checkDurationCapacity(d, { from: from, to: to }, ratesValuesByHours, resPower)
         if (!durationsCapacity[0]) {
             throw new Error('No capacity found for this divice')
         } else {
             minIndex = getEconomicalDuration(durationsCapacity, d, ratesValuesByHours, resPower)
-            
+
         }
         let sFrom = minIndex;
         let sTo = minIndex;
-        
+
 
         if (resPower[minIndex] + d.power <= input.maxPower) {
             resPower[minIndex] += d.power;
@@ -221,12 +215,12 @@ function calc(input) {
 
             let candidate;
             candidate = normalizeHour(sFrom - 1);
-            if (resPower[candidate] + d.power <= input.maxPower/* && checkInRangeHours(from, to, candidate)*/) {
+            if (resPower[candidate] + d.power <= input.maxPower) {
                 candidates[0] = candidate;
                 candidatesValues[0] = ratesValuesByHours[candidate];
             }
             candidate = normalizeHour(sTo + 1);
-            if (resPower[candidate] + d.power <= input.maxPower/* && checkInRangeHours(from, to, candidate)*/) {
+            if (resPower[candidate] + d.power <= input.maxPower) {
                 candidates[1] = candidate;
                 candidatesValues[1] = ratesValuesByHours[candidate];
             }
