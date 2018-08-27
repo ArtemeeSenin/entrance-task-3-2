@@ -10,7 +10,7 @@ function getData(err, data) {
 }
 
 function printData(res) {
-    fs.writeFile('./data/res.json', res, (err) => {
+    fs.writeFile('./data/output.json', res, (err) => {
         if (err) throw err;
         console.log('The file has been saved!');
     })
